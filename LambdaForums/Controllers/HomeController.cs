@@ -24,7 +24,7 @@ namespace LambdaForums.Controllers
         public IActionResult Index()
         {
             var model = BuildHomeIndexModel();
-            return View();
+            return View(model);
         }
 
         private HomeIndexModel BuildHomeIndexModel()
