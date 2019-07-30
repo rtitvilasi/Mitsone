@@ -9,7 +9,7 @@
             <p class="frontPageSubHeading">Coding forum</p>
             <div>
                 <form asp-controller="Search" asp-action="Search" method="post">
-                    <input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Search..." />
+                    <input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Search bar" />
                 </form>
             </div>
         </div>
@@ -17,6 +17,7 @@
     </div>
     <div class="row frontPageContent">
         <h3 id="latestas">Latest as</h3>
+        
         <table class="table table-hover" id="latestasTable">
             <tbody>
                 @foreach (var post in Model.LatestPosts)
