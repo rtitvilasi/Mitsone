@@ -1,61 +1,48 @@
-﻿@model LambdaForums.Models.Forum.ForumTopicModel
+﻿@model LambdaForums.Models.Search.SearchResultModel
 
 <div class="container body-content">
     <div class="row sectionHeader">
-       <div class="sectionHeading">
-            <span>@Model.Forum.Name Forum</span>
-            @if (Context.User.Identity.IsAuthenticated)
-            {
-                <span id="headingBtn">
-                    <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id" class="btn btn-newPost">
-                        Create Post
-                    </a>
-                </span>
-            }
-            <form asp-controller="Forum" asp-action="Search" method="post">
+        <div class="sectionHeading">
+            <span>Search Results for: @Model.SearchQuery</span>
+            <form asp-controller="Search" asp-action="Search" method="post">
                 <div class="searchForm">
                     <input asp-for="SearchQuery" type="text" placeholder="Search...." class="searchBar" onfocus="clearThis(this)" />
                     <button type="submit" class="btn btn-forumSearch">
                         <i class="material-icons">search</i>
                     </button>
                 </div>
-                <input asp-for="Forum.Id" name="id" type="hidden" />
             </form>
-        </div>
-        <div class="sectionDescription">
-            <div class="forumLogo" style="background-image:url(@Model.Forum.ImageUrl)"></div>
-            <p>Welcome to @Model.Forum.Name</p>
-            @if (!User.Identity.IsAuthenticated)
-            {
-            <p>
-                <span>You must be a 
-                    <a asp-area="Identity" asp-page="/Account/Register">member</a>
-                to registere new post</span>
-            </p>
-            }
         </div>
     </div>
     <div class="row forumIndexContent">
-        @if (Model.Posts.Any())
+        @if (!Model.EmptySearchResults)
         {
-            <table class="table table-hover table-bordered" id="forumIndexTable">
+            <table class="table table-hover table-bordered" id="searchIndexTable">
                 <tbody>
-                    @foreach(var post in Model.Posts)
+                    @foreach (var post in Model.Posts)
                     {
                         <tr>
                             <td>
+                               
+                                <div class="forumLogo" style="background-image:url(@post.Forum.ImageUrl)"></div>
                                 <div class="postData">
                                     <div class="postTitle">
                                         <a asp-controller="Post" asp-action="Index" asp-route-id="@post.Id">@post.Title</a>
                                     </div>
                                     <div class="forumSubTitle">
                                         <div>
+                                            by:
                                             <span class="postAuthor">
                                                 <a asp-controller="Profile" asp-action="Detail" asp-route-id="@post.AuthorId">
                                                     @post.AuthorName
                                                 </a>
+                                                (@post.AuthorRating)
                                             </span>
-                                            (@post.AuthorRating)     
+                                           in:
+                                            <span class="postForum">
+                                                <a asp-controller="Forum" asp-action="Topic" asp-route-id="@post.Forum.Id">@post.Forum.Name</a>
+                                            </span>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -78,21 +65,18 @@
             <div class="noPosts">
                 <i class="material-icons md-72">question_answer</i>
                 <h3>
-                    No posts found. Why not
-                    <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id">
-                        <span>Post</span>
-                    </a>
-                    Something?
+                   No search Results found for @Model.SearchQuery<br/>
                 </h3>
             </div>
         }
     </div>
 </div>
 
-@section  Scripts{ 
-<script>
+@section Scripts{
+    <script>
     function clearThis(target) {
         target.value = "";
     }
-</script>
+    </script>
 }
+

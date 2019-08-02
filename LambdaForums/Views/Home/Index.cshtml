@@ -9,7 +9,7 @@
             <p class="frontPageSubHeading">Coding forum</p>
             <div>
                 <form asp-controller="Search" asp-action="Search" method="post">
-                    <input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Search bar" />
+                    <input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Search..." />
                 </form>
             </div>
         </div>
@@ -24,9 +24,9 @@
                 {
                     <tr>
                         <td>
-                            <div class="forumLogo" style="background-image: url(@post.Forum.ImageUrl); background-size=100%"></div>
+                            <div class="forumLogo" style="background-image: url(@post.Forum.ImageUrl);background-size:100%"></div>
                             <div class="aTitle">
-                                <a asp-controller="a" asp-action="Index" asp-route-id="@post.Id">
+                                <a asp-controller="Post" asp-action="Index" asp-route-id="@post.Id">
                                     @post.Title
                                 </a>
                             </div>
