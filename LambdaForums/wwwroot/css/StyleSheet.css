@@ -1,6 +1,7 @@
-﻿body {
+﻿@import url('stylesheet.css');
+body {
     background-color: #EEE;
-    background-image: url('../images/theme/bg-01.jpg');
+    background-image: url('../images/theme/background.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -44,11 +45,11 @@
     height:400px;
     background-color:white;
 }
-.frontPageSplash{
-    background-image:url('../images/theme/front-splash.jpg');
-    background-size:100%;
-    background-repeat:no-repeat;
-    background-position:center;
+.frontPageSplash {
+    background-image: url('../images/theme/front.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .frontPageLearn {
     font-family: 'Roboto';
@@ -301,4 +302,28 @@
 .createPostSection{
     background-color:#fff;
     padding:24px;
+}
+/*User Profiles*/
+.userProfile{
+    padding:32px 0 64px 24px;
+    background-color:#fff;
+}
+#userProfileImage{
+    display:inline-block;
+    width:200px;
+    height:200px;
+    background-color:#ddd;
+}
+
+#userEmailLabel, #userBioLabel, #userCreatedLabel, #userRating, #userActiveLabel {
+    display: block;
+    color: #444;
+    font-family: 'Roboto';
+    padding-top:3px;
+}
+#userName{
+    display: block;
+    color: #2569d5;
+    font-family: 'Roboto';
+    font-size:1.7em;
 }

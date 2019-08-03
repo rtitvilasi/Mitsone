@@ -16,14 +16,18 @@ namespace LambdaForums.Service
             _context = context;
         }
 
-        public Task Create(Forum forum)
+        public async Task Create(Forum forum)
         {
-            throw new NotImplementedException();
+            _context.Add(forum);
+            await _context.SaveChangesAsync();
+
         }
 
-        public Task Delete(int forumid)
+        public async Task Delete(int forumid)
         {
-            throw new NotImplementedException();
+            var forum = GetById(forumid);
+            _context.Add(forum);
+            await _context.SaveChangesAsync();
         }
 
         public IEnumerable<Forum> GetAll()

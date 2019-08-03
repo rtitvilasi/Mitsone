@@ -12,7 +12,7 @@ namespace LambdaForums.Data
         IEnumerable<ApplicationUser> GetAll();
         
 
-        Task IncrementRating(string id, Type type);
+        Task UpdateUserRating(string id, Type type);
         Task SetProfileImage(string id, Uri uri);
 
     }

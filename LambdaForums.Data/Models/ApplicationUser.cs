@@ -13,7 +13,6 @@ namespace LambdaForums.Data.Models
         public DateTime MemberSince { get; set; }
         public bool IsActive { get; set; }
 
-
     }
     
     

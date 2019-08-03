@@ -22,19 +22,19 @@
                     </div>
                     <button type="submit" id="btn-profile" class="btn btn-default">
                         Submit
-                    </button> 
+                    </button>
                 </form>
             }
         </div>
-    </div>
-    <div class="col-md-8">
-        <span id="userName">@Model.UserName</span>
-        @if (@Model.IsAdmin)
-        {
+        <div class="col-md-8">
+            <span id="userName">@Model.UserName</span>
+            @if (@Model.IsAdmin)
+            {
                 <span class="isAdmin">Admin</span>
-        }
-        <span id="userRating">Current Rating:@Model.UserRating</span>
-        <span id="userEmailLabel">Email:@Model.Email</span>
-        <span id="userCreatedLabel">Member Since: @Model.MemberSince</span>
+            }
+            <span id="userRating">Current Rating:@Model.UserRating</span>
+            <span id="userEmailLabel">Email:@Model.Email</span>
+            <span id="userCreatedLabel">Member Since: @Model.MemberSince</span>
+        </div>
     </div>
 </div>
