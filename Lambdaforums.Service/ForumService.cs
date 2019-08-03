@@ -26,7 +26,7 @@ namespace LambdaForums.Service
         public async Task Delete(int forumid)
         {
             var forum = GetById(forumid);
-            _context.Add(forum);
+            _context.Remove(forum);
             await _context.SaveChangesAsync();
         }
 

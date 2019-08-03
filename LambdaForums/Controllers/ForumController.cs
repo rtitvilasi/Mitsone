@@ -91,6 +91,11 @@ namespace LambdaForums.Controllers
             await _forumService.Create(forum);
             return RedirectToAction("Index", "Forum");
         }
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _forumService.Delete(id);
+            return RedirectToAction("Index", "Forum");
+        }
 
         private ForumListingModel BuildForumListing(Post post)
         {

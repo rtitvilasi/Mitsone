@@ -2,13 +2,18 @@
 
 <div class="container body-content">
     <div class="row sectionHeader">
-       <div class="sectionHeading">
+        <div class="sectionHeading">
             <span>@Model.Forum.Name Forum</span>
             @if (Context.User.Identity.IsAuthenticated)
             {
                 <span id="headingBtn">
                     <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id" class="btn btn-newPost">
                         Create Post
+                    </a>
+                </span>
+                <span id="headingBtn">
+                    <a asp-controller="Forum" asp-action="Delete" asp-route-id="@Model.Forum.Id" class="btn btn-newPost">
+                        Delete Forum
                     </a>
                 </span>
             }
