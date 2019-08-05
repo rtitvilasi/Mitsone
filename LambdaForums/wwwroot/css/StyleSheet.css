@@ -130,7 +130,7 @@ body {
 .postData{
     display:inline-block;
 }
-.postData {
+.postDate {
     color: #888;
     font-family: 'Roboto Mono';
     font-size: 0.8em;
@@ -177,6 +177,10 @@ body {
 .postHeader{
     background-color:#212121;
     padding:8px 0px 24px 24px;
+}
+#replyDivider{
+    height:2px;
+    margin-bottom:12px;
 }
 
 #headingBtn{
@@ -303,6 +307,14 @@ body {
     background-color:#fff;
     padding:24px;
 }
+.authorBlock{
+       padding:18px;
+       border:1px dashed #00AFCF;
+       margin-bottom:8px;
+}
+.noBorder{
+    border:none;
+}
 /*User Profiles*/
 .userProfile{
     padding:32px 0 64px 24px;
@@ -326,4 +338,39 @@ body {
     color: #2569d5;
     font-family: 'Roboto';
     font-size:1.7em;
+}
+.userProfilePic{
+    height:140px;
+    width:140px;
+    background-size:100%;
+}
+#userProfileImage {
+    background-size: 100%;
+}
+.fillSquare {
+    background-size: 100%;
+}
+.replyContent{
+    display:table;
+    background-color:#fff;
+    border-bottom:1px solid #aaa;
+    width:inherit;
+}
+#postReplyRow{
+    background-color:#3F51B5;
+    padding:8px;
+}
+.replyContentContainer, .replyAuthorContainer {
+    display: table-cell;
+    padding: 12px;
+}
+.isAdmin{
+    display:inline-block;
+    padding:3px;
+    background-color:#FFEB3B;
+    color:#000;
+    font-family:'Roboto Mono';
+}
+.smaller{
+    font-size:0.8em;
 }
