@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using LambdaForums.Data;
 using LambdaForums.Data.Models;
 using LambdaForums.Models.ApplicationUser;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LambdaForums.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -65,6 +67,7 @@ namespace LambdaForums.Controllers
 
             return Ok(new { count = files.Count, size, filePath });
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var profiles = _userService.GetAll()

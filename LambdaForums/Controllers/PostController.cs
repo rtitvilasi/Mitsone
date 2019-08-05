@@ -6,11 +6,13 @@ using LambdaForums.Data;
 using LambdaForums.Data.Models;
 using LambdaForums.Models.Post;
 using LambdaForums.Models.Reply;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LambdaForums.Controllers
 {
+    [Authorize]
     public class PostController : Controller
     {
         private readonly IPost _postService;

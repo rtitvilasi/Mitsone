@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using LambdaForums.Data;
 using LambdaForums.Data.Models;
 using LambdaForums.Models.Reply;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LambdaForums.Controllers
 {
+    [Authorize]
     public class ReplyController : Controller
     {
         private readonly IPost _postService;
